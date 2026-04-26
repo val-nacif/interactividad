@@ -10,14 +10,20 @@ function setup() {
 }
 
 function draw() {
-    background(9, 7 ,150, 0.5);
+    background(0, 100 ,100, 100);
     updateCursor();
 } 
 
 function updateCursor() {
+     x += (mouseX - x) * friction;
+    y += (mouseY - y) * friction;
     fill(fill_color);
     stroke(stroke_color);
-    x += (mouseX - x) * friction;
-    y += (mouseY - y) * friction;
+  
+    fill_color= map(x, 0, width, 0, 255);
+
+    fill_color= map(y, 0, height, 7, 255);
+    noStroke();
+    fill(fill_color);
     ellipse( x, y, size, size);
 }
